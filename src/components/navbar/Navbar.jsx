@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 import TabsSection from "../home/TabsSection";
 import logo from "../../assets/logo.webp";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 150;
 const navItems = ["Home", "About", "Contact"];
@@ -49,7 +50,6 @@ function Navbar(props) {
       <CssBaseline />
       <AppBar
         component="nav"
-        
         className="bg-BgGrey shadow-sm  xs:px-none sm:px-28"
       >
         <Toolbar sx={{ justifyContent: { xs: "none", sm: "space-between" } }}>
@@ -62,7 +62,9 @@ function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <img src={logo} loading="lazy" width="150px" />
+          <Link to={"/"}>
+            <img src={logo} loading="lazy" width="150px" />
+          </Link>
           <Box sx={{ display: { xs: "none", sm: "block" }, color: "" }}>
             {navItems.map((item) => (
               <Button key={item} className="text-primaryBlue font-bold">
@@ -92,9 +94,8 @@ function Navbar(props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" className="p-3 bg-BgGrey w-full min-h-screen">
+      <Box component="main" className="p-3 bg-BgGrey w-full">
         <Toolbar />
-        <TabsSection />
       </Box>
     </Box>
   );
