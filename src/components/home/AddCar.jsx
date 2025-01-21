@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 import { addNewCar } from "../../redux/slices/carsSlice";
 
 const AddCar = () => {
-  const [newCar, setNewCar] = useState({});
+  const [newCar, setNewCar] = useState({
+    id: Math.floor(Math.random() * (10000 - 3 + 1) + 3),
+  });
   const dispatch = useDispatch();
   const handleSubmit = () => {
     dispatch(addNewCar(newCar));
