@@ -39,8 +39,17 @@ const carsSlice = createSlice({
       const newObject = state.carsModels.find((model) => model.id == payload);
       state.carDetails = newObject;
     },
+    addNewCar: (state, { payload }) => {
+      state.carsModels = [...state.carsModels, payload];
+    },
+    editCarModels: (state, { payload }) => {
+      state.carsModels = state.carsModels.map((model) =>
+        model.id === payload.id ? { ...model, ...payload } : model
+      );
+    },
   },
 });
 
 export const cars = carsSlice.reducer;
-export const { deleteCar, singleCarDetails } = carsSlice.actions;
+export const { deleteCar, singleCarDetails, addNewCar, editCarModels } =
+  carsSlice.actions;

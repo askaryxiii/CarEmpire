@@ -15,10 +15,14 @@ const CarModel = () => {
   return (
     <div className="flex flex-col gap-3 m-8 p-8 rounded-xl bg-white">
       <Typography variant="h6">{carDetails.model}</Typography>
-      <div className="flex gap-5">
-        <img src={carDetails.img} alt={carDetails.model} className="w-1/2" />
+      <div className="flex max-sm:flex-col gap-5">
+        <img
+          src={carDetails.img}
+          alt={carDetails.model}
+          className="max-sm:w-full w-1/2"
+        />
         <Divider orientation="vertical" variant="middle" flexItem />
-        <div className="flex flex-col gap-8 w-1/2">
+        <div className="flex flex-col gap-8 max-sm:w-full w-1/2">
           <div className="flex flex-col">
             <Typography variant="h6">{carDetails.model}</Typography>
             <Typography className="text-sm font-semibold text-primaryBlue">
@@ -70,7 +74,7 @@ const CarModel = () => {
           </div>
           <Link
             to={`/car/edit/${carDetails.id}`}
-            className="w-full flex justify-end no-underline"
+            className="w-fit no-underline"
           >
             <Button variant="contained" className="px-10" disableElevation>
               Edit Car
